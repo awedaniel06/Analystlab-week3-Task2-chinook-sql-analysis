@@ -7,29 +7,7 @@
 A structured SQL analysis of the **Chinook Music Store** database, covering revenue metrics, sales trends, customer intelligence, and geographic performance.
 
 ---
-
-## 📁 Repository Structure
-
-```
-chinook-sql-analysis/
-│
-├── queries/
-│   ├── 01_data_overview.sql          # Customer & Invoice table exploration
-│   ├── 02_revenue_metrics.sql        # Total revenue, average transaction value
-│   ├── 03_transaction_analysis.sql   # Count, active years, per-year breakdown
-│   ├── 04_sales_trends.sql           # Monthly, quarterly, yearly trends
-│   ├── 05_customer_analysis.sql      # Segments, top customers, non-purchasers
-│   └── 06_geographic_analysis.sql    # Revenue & transactions by country
-│
-├── reports/
-│   └── SQL_Analysis_Report.docx      # Full formatted report with tables
-│
-├── assets/
-│   └── schema.png                    # (Add your Chinook ERD here)
-│
-└── README.md
-```
-
+         
 ---
 
 ## 🗄️ Database
