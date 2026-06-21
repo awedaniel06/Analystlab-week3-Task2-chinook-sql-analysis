@@ -47,11 +47,6 @@ The two tables connect through the shared `CustomerId`, which makes it possible 
 |---|---|
 | `queries.sql` | All SQL queries used in the analysis |
 | `SQL_Query_Insights_Report.docx` | Query-by-query explanations and findings |
-| `Insights_and_Recommendations.docx` | Condensed summary of insights and next steps |
+| `Insights_and_Recommendations.docx` 
 | `README.md` | This file |
 
-## Author
-
-**Awe Daniel Olamilekan**
-Data Analyst | Automobile Technology background transitioning into Data Analytics
-[Add LinkedIn profile link]
