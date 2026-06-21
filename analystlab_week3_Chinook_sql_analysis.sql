@@ -64,7 +64,7 @@ SELECT count(CustomerId) Total_Customer
 FROM customer;
 
 -- Average revenue per Customer
-SELECT ROUND( SUM(invoice.Total)/COUNT(customer.CustomerId), 2) Average_revenue_per_Customer
+SELECT ROUND( SUM(invoice.Total)/COUNT(Distinct customer.CustomerId), 2) Average_revenue_per_Customer
 FROM customer
 LEFT JOIN invoice
 on customer.CustomerId=invoice.CustomerId;
