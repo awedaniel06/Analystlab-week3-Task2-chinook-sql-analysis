@@ -1,88 +1,57 @@
-# 🎵 Chinook Music Store — SQL Analysis
+# Sales & Customer SQL Analysis
 
-![SQL](https://img.shields.io/badge/Language-SQL-blue?style=flat-square&logo=mysql)
-![Database](https://img.shields.io/badge/Database-MySQL-orange?style=flat-square&logo=mysql)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=flat-square)
+A SQL-driven analysis of sales performance, customer behavior, and market trends — built to turn raw transactional data into clear, decision-ready insight.
 
-A structured SQL analysis of the **Chinook Music Store** database, covering revenue metrics, sales trends, customer intelligence, and geographic performance.
+## Overview
 
----
-         
----
+This project answers a simple question: **where is the business winning, and where is it leaving value on the table?** Using only SQL against the source database, the analysis covers overall sales performance, how revenue moves over time, which customers matter most, and how performance differs by market — without any spreadsheet or BI-tool pre-processing in between.
 
-## 🗄️ Database
+## About the Dataset
 
-This project uses the [Chinook database](https://github.com/lerocha/chinook-database) — a sample database representing a digital music store with tables for customers, invoices, tracks, artists, and more.
+The analysis draws on two related tables from the sales database:
 
-**Key tables used:**
-| Table | Description |
-|-------|-------------|
-| `customer` | Customer records including name, country, and contact info |
-| `invoice` | Sales transactions with date, billing country, and total |
+**`customer`** — 59 unique customer records, each identified by `CustomerId` with supporting name and billing fields.
 
----
+**`invoice`** — 412 transaction records spanning five years (2021–2025), each linked to a customer via `CustomerId` and timestamped with `InvoiceDate`. This is the core table behind every revenue and trend figure in the analysis.
 
-## 📊 Analysis Sections
+The two tables connect through the shared `CustomerId`, which makes it possible to move between customer-level and transaction-level views of the same data.
 
-### 1. Data Overview
-- Full customer table scan
-- Full invoice table scan
+## What This Analysis Covers
 
-### 2. Revenue Metrics
-- Total revenue (`SUM`)
-- Average sales per transaction
+- **Overall performance** — total revenue, total transactions, and average order value across the full period on record
+- **Trends over time** — how revenue and transaction volume move year over year, and how they break down by quarter and month within each year
+- **Customer behavior** — who the highest-value customers are, how purchase frequency varies across the base, and which customers are on file but have never purchased
+- **Market performance** — which countries generate the most revenue and the most transactions, and how closely those two rankings track each other
 
-### 3. Transaction Analysis
-- Total transaction count
-- Number of active business years
-- Transactions broken down per year
+## Skills Demonstrated
 
-### 4. Sales Trends
-- Monthly revenue by month and year
-- Yearly revenue trend
-- Month/Quarter/Year revenue using **window functions** (`OVER`, `PARTITION BY`)
-- Month/Quarter/Year transaction count using window functions
+- Writing aggregate and grouped queries to summarize transactional data
+- Using window functions to roll detailed (monthly) data up into broader (quarterly, yearly) totals without losing row-level detail
+- Joining tables to uncover customers with no transaction history
+- Segmenting customers with conditional logic based on purchase frequency
+- Ranking and comparing performance across categories (customers, countries) using window-based ranking functions
 
-### 5. Customer Analysis
-- Total customer count
-- Average revenue per customer (JOIN)
-- Top customers ranked by total spend
-- Customer segmentation: **New** vs **Returning**
-- Customers who have **never made a purchase** (LEFT JOIN + NULL check)
+## Key Insights
 
-### 6. Geographic Analysis
-- Revenue ranked by billing country (`ROW_NUMBER`)
-- Transaction count ranked by billing country
+- **$2,328.60 in total revenue** across 412 transactions over five years, with an average order value of **$5.65**
+- Revenue stayed essentially flat year over year — ranging narrowly from $449.46 to $481.45 — with no clear growth or decline trend across the period
+- Transaction volume is remarkably even across years (83, 83, 83, 83, then 80), showing no strong seasonal or annual swing at the yearly level
+- With 412 invoices across 59 customers — roughly **7 invoices per customer** on average — purchase frequency is high, suggesting most of the base are repeat buyers rather than one-time purchasers
+- The top 5 customers contributed **$235.10 combined, about 10.1% of total revenue** — a moderate concentration given the customer base is only 59 people
+- **Every customer has purchased at least once** — there are zero dormant, never-purchased accounts on file
+- The United States leads all markets ($523.06 in revenue, 91 transactions), and the top 5 countries (US, Canada, Brazil, Germany, UK) account for **58.8% of revenue and 59.5% of transactions** — revenue share and transaction share track closely, with no major average-order-value gap between markets
 
----
+## Repository Contents
 
-## ▶️ How to Run
+| File | Description |
+|---|---|
+| `queries.sql` | All SQL queries used in the analysis |
+| `SQL_Query_Insights_Report.docx` | Query-by-query explanations and findings |
+| `Insights_and_Recommendations.docx` | Condensed summary of insights and next steps |
+| `README.md` | This file |
 
-1. Import the Chinook database into your MySQL instance:
-   ```sql
-   SOURCE chinook.sql;
-   ```
+## Author
 
-2. Select the database:
-   ```sql
-   USE chinook;
-   ```
-
-3. Run any query file:
-   ```sql
-   SOURCE queries/01_data_overview.sql;
-   ```
-
----
-
-## 🛠️ Tools Used
-
-- **MySQL** — Query execution
-- **MySQL Workbench** — Query editor and ERD viewer
-- **Microsoft Word** — Report formatting
-
----
-
-## 📄 License
-
-This project is for educational and portfolio purposes. The Chinook database is open-source under the [MIT License](https://github.com/lerocha/chinook-database/blob/master/LICENSE.md).
+**Awe Daniel Olamilekan**
+Data Analyst | Automobile Technology background transitioning into Data Analytics
+[Add LinkedIn profile link]
