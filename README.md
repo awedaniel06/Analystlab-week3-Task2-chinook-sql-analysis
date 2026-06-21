@@ -47,6 +47,6 @@ The two tables connect through the shared `CustomerId`, which makes it possible 
 |---|---|
 | `queries.sql` | All SQL queries used in the analysis |
 | `SQL_Query_Insights_Report.docx` | Query-by-query explanations and findings |
-| `Insights_and_Recommendations.docx` 
+| `chinook-database_ChinookDatabase_DataSources_Chinook_MySql.sql at master · lerocha_chinook-database` | Dataset
 | `README.md` | This file |
 
